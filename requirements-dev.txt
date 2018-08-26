@@ -1,0 +1,4 @@
+black==18.6b4
+coverage==4.5.1
+flake8==3.5.0
+mypy==0.620
