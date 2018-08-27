@@ -1,36 +1,7 @@
-import argparse
-import re
 import os
 from typing import List, Iterator
 
-from const import SCRIBE_ROOT, QUERY_RE_PATTERN, INTERVAL_RE_PATTERN
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Easily specify some log files and print their contents to stdout."
-    )
-    parser.add_argument(
-        "logcategory", help="glob-like string to specify the log category"
-    )
-    parser.add_argument(
-        "interval",
-        nargs="?",
-        default="0",
-        help="specify which log files should be read",
-    )
-    args = parser.parse_args()
-    if are_args_valid(args.logcategory, args.interval):
-        return args
-    else:
-        raise Exception("Invalid args")
-
-
-def are_args_valid(logcategory: str, interval: str) -> bool:
-    return (
-        re.match(QUERY_RE_PATTERN, logcategory) is not None
-        and re.match(INTERVAL_RE_PATTERN, interval) is not None
-    )
+from const import SCRIBE_ROOT
 
 
 def list_logcategories() -> List[str]:
@@ -83,11 +54,3 @@ def get_word_list_without_matching_word(
 
 def _get_words_from_name(name: str) -> List[str]:
     return name.replace("_", "-").split("-")
-
-
-def get_filenames(logcategory: str, interval: str) -> List[str]:
-    pass
-
-
-def print_logs(filenames: List[str]) -> None:
-    pass

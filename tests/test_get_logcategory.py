@@ -1,7 +1,7 @@
 import unittest
 
+from utils.get_logcategory import get_logcategory
 from .data import mock_logcategories
-from utils import get_logcategory
 
 
 class GetLogcategoryTestCase(unittest.TestCase):

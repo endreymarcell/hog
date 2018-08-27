@@ -1,6 +1,6 @@
 import unittest
 
-from utils import get_word_list_without_matching_word
+from utils.get_logcategory import get_word_list_without_matching_word
 
 
 class GetWordListWithoutMatchingWordTestCase(unittest.TestCase):

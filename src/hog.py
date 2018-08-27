@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 from typing import List
 
-from utils import (
-    parse_args,
-    get_logcategory,
-    get_filenames,
-    print_logs,
-    list_logcategories,
-)
+from utils.args import parse_args
+from utils.get_filenames import get_filenames
+from utils.get_logcategory import list_logcategories, get_logcategory
+from utils.print_logs import print_logs
 
 
 def main() -> None:

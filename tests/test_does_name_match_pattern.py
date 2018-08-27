@@ -1,6 +1,6 @@
 import unittest
 
-from utils import does_name_match_pattern
+from utils.get_logcategory import does_name_match_pattern
 
 
 class DoesNameMatchPatternTestCase(unittest.TestCase):
