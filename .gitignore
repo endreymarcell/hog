@@ -1,6 +1,6 @@
 .idea/
 virtualenv/
-*/__pycache__/*
+**/__pycache__/**
 .mypy_cache/
 .coverage
 htmlcov/
