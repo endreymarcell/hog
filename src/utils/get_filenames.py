@@ -26,15 +26,31 @@ def select_filenames_for_interval(filenames: List[str], interval: str) -> List[s
         return [filenames[index]]
 
 
-def _get_index_for_single(specifier: str) -> int:
-    return int(specifier)
-
-
 def _get_indexes_for_interval(
     start_specifier: str, end_specifier: str
 ) -> Tuple[Optional[int], Optional[int]]:
-    start_index = int(start_specifier) if start_specifier != "" else None
-    end_index = int(end_specifier) + 1 if end_specifier != "" else None
+    start_index = (
+        _get_index_for_single(start_specifier) if start_specifier != "" else None
+    )
+    end_index = (
+        _get_index_for_single(end_specifier) + 1 if end_specifier != "" else None
+    )
     if end_index == 0:
         end_index = None
     return start_index, end_index
+
+
+def _get_index_for_single(specifier: str) -> int:
+    return (
+        _get_index_for_relative_single(specifier)
+        if specifier.startswith("-")
+        else _get_index_for_absolute_single(specifier)
+    )
+
+
+def _get_index_for_relative_single(specifier: str) -> int:
+    return int(specifier)
+
+
+def _get_index_for_absolute_single(specifier: str) -> int:
+    pass
