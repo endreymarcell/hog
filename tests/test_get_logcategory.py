@@ -1,7 +1,11 @@
 import unittest
 from itertools import permutations
 
-from utils.get_logcategory import get_logcategory, NoLogcategoryFoundException
+from utils.get_logcategory import (
+    get_logcategory,
+    NoLogcategoryFoundException,
+    MultipleLogcategoriesFoundException,
+)
 from .data import mock_logcategories
 
 
@@ -22,3 +26,7 @@ class GetLogcategoryTestCase(unittest.TestCase):
         queries = [f"{x}-{y}-{z}" for (x, y, z) in list(permutations(["c", "b", "d"]))]
         results = [get_logcategory(query, mock_logcategories) for query in queries]
         self.assertTrue(all(result == "cheeseshop_danish_blue" for result in results))
+
+    def test_underqualified_name_raises(self) -> None:
+        with self.assertRaises(MultipleLogcategoriesFoundException):
+            get_logcategory("che", ["cheese", "cheddar"])
