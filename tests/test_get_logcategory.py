@@ -1,13 +1,13 @@
 import unittest
 from itertools import permutations
 
-from utils.get_logcategory import get_logcategory
+from utils.get_logcategory import get_logcategory, NoLogcategoryFoundException
 from .data import mock_logcategories
 
 
 class GetLogcategoryTestCase(unittest.TestCase):
     def test_no_match(self) -> None:
-        with self.assertRaises(Exception):
+        with self.assertRaises(NoLogcategoryFoundException):
             get_logcategory("cheeseshop", [])
 
     def test_exact_match(self) -> None:

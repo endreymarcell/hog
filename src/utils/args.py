@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     if are_args_valid(args.logcategory, args.interval):
         return args
     else:
-        raise Exception("Invalid args")
+        raise argparse.ArgumentError("Invalid args")
 
 
 def are_args_valid(logcategory: str, interval: str) -> bool:

@@ -4,6 +4,18 @@ from typing import List, Iterator
 from const import SCRIBE_ROOT
 
 
+class NoLogcategoryFoundException(Exception):
+    pass
+
+
+class MultipleLogcategoriesFoundException(Exception):
+    pass
+
+
+class WordPrefixNotFoundException(Exception):
+    pass
+
+
 def list_logcategories() -> List[str]:
     return os.listdir(SCRIBE_ROOT)
 
@@ -23,9 +35,9 @@ def get_logcategory(query: str, logcategories: List[str]) -> str:
         )
     )
     if len(matching_logcategories) == 0:
-        raise Exception("no matching log category found")
+        raise NoLogcategoryFoundException
     elif len(matching_logcategories) > 1:
-        raise Exception("multiple matching log categories found")
+        raise MultipleLogcategoriesFoundException
     else:
         return matching_logcategories[0]
 
@@ -36,7 +48,7 @@ def does_name_match_pattern(name: str, pattern: List[str]) -> bool:
     try:
         for pattern_word in pattern_words_by_length:
             words = get_word_list_without_matching_word(words, pattern_word)
-    except Exception:
+    except WordPrefixNotFoundException:
         return False
     else:
         return True
@@ -49,7 +61,7 @@ def get_word_list_without_matching_word(
         if word.startswith(word_prefix):
             word_list_without_matching_word = word_list[:i] + word_list[i + 1 :]
             return word_list_without_matching_word
-    raise Exception("word prefix not found in word list")
+    raise WordPrefixNotFoundException()
 
 
 def _get_words_from_name(name: str) -> List[str]:
