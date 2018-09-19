@@ -1,4 +1,4 @@
-.PHONY: test report format lint typecheck check copy-hooks
+.PHONY: test report format lint typecheck check copy-hooks ci
 
 test:
 	coverage run -m unittest
@@ -24,3 +24,8 @@ check:
 
 copy-hooks:
 	cp .githooks/* .git/hooks/
+
+ci:
+	make lint
+	make typecheck
+	make test
