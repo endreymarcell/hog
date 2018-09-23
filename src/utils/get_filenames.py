@@ -1,9 +1,7 @@
 import os
 from typing import List, Tuple, Optional
 
-from const import SCRIBE_ROOT
-
-TIMESTAMP_LENGTH_IN_FILENAME = 16
+from const import SCRIBE_ROOT, TIMESTAMP_LENGTH_IN_FILENAME
 
 
 class NoFileMatchesAbsoluteSpecifierException(Exception):
