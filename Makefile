@@ -1,4 +1,11 @@
-.PHONY: test report format lint typecheck check copy-hooks ci
+.PHONY: install test report format lint typecheck check copy-hooks ci
+
+install:
+	python3 -m venv virtualenv
+	. virtualenv/bin/activate
+	pip3 install -r requirements-dev.txt
+	make copy-hooks
+	make ci
 
 test:
 	coverage run -m unittest
