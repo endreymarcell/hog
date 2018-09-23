@@ -16,7 +16,7 @@ def main() -> None:
     filenames: List[str] = get_filenames(
         logcategory=logcategory, interval=args.interval
     )
-    print_logs(filenames)
+    print_logs(logcategory, filenames)
 
 
 if __name__ == "__main__":

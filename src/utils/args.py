@@ -14,7 +14,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "interval",
         nargs="?",
-        default="0",
+        default="-1",
         help="specify which log files should be read",
     )
     args = parser.parse_args()
