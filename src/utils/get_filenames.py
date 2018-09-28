@@ -11,13 +11,13 @@ class NoFileMatchesAbsoluteSpecifierException(Exception):
 def list_logfiles(directory: str) -> List[str]:
     return list(
         filter(
-            lambda filename: filename != directory + "_current", os.listdir(directory)
+            lambda filename: not filename.endswith("_current"), os.listdir(directory)
         )
     )
 
 
 def get_filenames(logcategory: str, interval: str) -> List[str]:
-    filenames = list_logfiles(SCRIBE_ROOT + "/" + logcategory)
+    filenames = sorted(list_logfiles(SCRIBE_ROOT + "/" + logcategory))
     return select_filenames_for_interval(filenames, interval)
 
 
