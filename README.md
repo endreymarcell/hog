@@ -3,6 +3,8 @@
 Hog helps you specify the files you want to open when looking through your Scribe logs.
 
 [![build status](https://api.travis-ci.com/endreymarcell/hog.svg?branch=master)](https://travis-ci.com/endreymarcell/hog)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 
 ### Usage
 
