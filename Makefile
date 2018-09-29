@@ -1,6 +1,6 @@
-.PHONY: install test report format lint typecheck check copy-hooks ci
+.PHONY: develop test report format lint typecheck check copy-hooks ci
 
-install:
+develop:
 	python3 -m venv virtualenv
 	. virtualenv/bin/activate
 	pip3 install -r requirements-dev.txt
