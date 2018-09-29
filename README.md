@@ -21,3 +21,5 @@ Intervals can also be specified by using a colon. Relative and absolute referenc
 
 Make sure you have Python 3 installed.  
 Clone the repository, then call `make develop`.  
+
+![hog - Photo by Fabian Blank on Unsplash](hog.jpg)
