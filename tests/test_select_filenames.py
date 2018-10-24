@@ -2,8 +2,8 @@ import unittest
 
 from .data import mock_logfiles
 from utils.get_filenames import (
-    select_filenames_for_interval,
     NoFileMatchesAbsoluteSpecifierException,
+    select_filenames_for_interval,
 )
 
 

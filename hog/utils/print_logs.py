@@ -1,8 +1,8 @@
 import gzip
 from typing import List
 from os.path import join
-
 from signal import signal, SIGPIPE, SIG_DFL
+
 
 signal(SIGPIPE, SIG_DFL)
 
