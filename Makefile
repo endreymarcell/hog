@@ -1,4 +1,4 @@
-.PHONY: develop test report format lint typecheck check copy-hooks ci distribute
+.PHONY: develop test report html format lint typecheck check copy-hooks ci distribute
 
 develop:
 	python3 -m venv virtualenv
@@ -12,6 +12,9 @@ test:
 
 report:
 	coverage report
+
+html:
+	coverage html && open htmlcov/index.html
 
 format:
 	black hog tests
