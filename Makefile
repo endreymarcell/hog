@@ -1,4 +1,4 @@
-.PHONY: develop test report format lint typecheck check copy-hooks ci
+.PHONY: develop test report format lint typecheck check copy-hooks ci distribute
 
 develop:
 	python3 -m venv virtualenv
@@ -37,5 +37,6 @@ ci:
 	make typecheck
 	make test
 
-upload:
-	twine dist/*
+distribute:
+	python3 setup.py sdist bdist_wheel
+	python3 -m twine upload dist/*
