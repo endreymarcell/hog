@@ -1,7 +1,7 @@
 import argparse
 import re
 
-from const import QUERY_RE_PATTERN, INTERVAL_RE_PATTERN
+from hog.const import QUERY_RE_PATTERN, INTERVAL_RE_PATTERN
 
 
 def parse_args() -> argparse.Namespace:

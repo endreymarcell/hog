@@ -1,7 +1,7 @@
 import os
 from typing import List, Iterator
 
-from const import SCRIBE_ROOT
+from hog.const import SCRIBE_ROOT
 
 
 class NoLogcategoryFoundException(Exception):

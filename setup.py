@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="scribehog",
-    version="1.0.1",
+    version="1.1.0",
     author="Marcell Endrey",
     author_email="endrey.marcell@gmail.com",
     description="Log digging helper",
@@ -18,4 +18,9 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    entry_points={
+        "console_scripts": [
+            "hog = hog.hog:main"
+        ]
+    }
 )

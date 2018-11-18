@@ -3,7 +3,7 @@ from typing import List
 from os.path import join
 from signal import signal, SIGPIPE, SIG_DFL
 
-from const import SCRIBE_ROOT
+from hog.const import SCRIBE_ROOT
 
 signal(SIGPIPE, SIG_DFL)
 
