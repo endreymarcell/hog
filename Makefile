@@ -14,13 +14,13 @@ report:
 	coverage report
 
 format:
-	black .
+	black hog tests
 
 lint:
-	flake8
+	flake8 hog tests
 
 typecheck:
-	mypy src tests
+	mypy hog tests
 
 check:
 	make format
@@ -36,3 +36,6 @@ ci:
 	make lint
 	make typecheck
 	make test
+
+upload:
+	twine dist/*
