@@ -4,8 +4,13 @@ Hog helps you specify the files you want to open when looking through your Scrib
 
 [![PyPI version](https://badge.fury.io/py/scribehog.svg)](https://badge.fury.io/py/scribehog)
 [![build status](https://api.travis-ci.com/endreymarcell/hog.svg?branch=master)](https://travis-ci.com/endreymarcell/hog)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
+
+### Install
+
+```pip3 install --upgrade scribehog```
 
 ### Usage
 
@@ -24,7 +29,7 @@ You don't have to know if the specified files are gzip-compressed or not, hog ta
 
 ### Development
 
-Make sure you have Python 3 installed.  
+Make sure you have Python (>=3.5) installed.  
 Clone the repository, then call `make develop`.  
 
 ![hog - Photo by Fabian Blank on Unsplash](hog.jpg)
