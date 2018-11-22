@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="scribehog",
-    version="1.1.0",
+    version="1.1.1",
     author="Marcell Endrey",
     author_email="endrey.marcell@gmail.com",
     description="Log digging helper",

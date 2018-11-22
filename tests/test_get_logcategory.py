@@ -23,7 +23,10 @@ class GetLogcategoryTestCase(unittest.TestCase):
         self.assertEqual(result, "cheeseshop_danish_blue")
 
     def test_word_order_is_irrelevant(self) -> None:
-        queries = [f"{x}-{y}-{z}" for (x, y, z) in list(permutations(["c", "b", "d"]))]
+        queries = [
+            "{x}-{y}-{z}".format(x=x, y=y, z=z)
+            for (x, y, z) in list(permutations(["c", "b", "d"]))
+        ]
         results = [get_logcategory(query, mock_logcategories) for query in queries]
         self.assertTrue(all(result == "cheeseshop_danish_blue" for result in results))
 

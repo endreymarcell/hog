@@ -11,14 +11,14 @@ from hog.utils.print_logs import print_logs
 def main() -> None:
     args = parse_args()
     if args.is_verbose:
-        print(f"---hog logcategory specifier: {args.logcategory}", file=stderr)
-        print(f"---hog interval specifier: {args.interval}", file=stderr)
+        print("---hog logcategory specifier: {}".format(args.logcategory), file=stderr)
+        print("---hog interval specifier: {}".format(args.interval), file=stderr)
     logcategories = list_logcategories()
     logcategory: str = get_logcategory(
         query=args.logcategory, logcategories=logcategories
     )
     if args.is_verbose:
-        print(f"---hog logcategory: {logcategory}", file=stderr)
+        print("---hog logcategory: {}".format(logcategory), file=stderr)
     filenames: List[str] = get_filenames(
         logcategory=logcategory, interval=args.interval
     )
