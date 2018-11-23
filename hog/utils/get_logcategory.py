@@ -1,5 +1,5 @@
 import os
-from typing import List, Iterator
+from typing import List
 
 from hog.const import SCRIBE_ROOT
 
@@ -21,8 +21,8 @@ def list_logcategories() -> List[str]:
 
 
 def get_logcategory(query: str, logcategories: List[str]) -> str:
-    query_words: List[str] = query.split("-")
-    logcategories_with_n_words: Iterator[str] = filter(
+    query_words = query.split("-")
+    logcategories_with_n_words = filter(
         lambda logcategory: len(_get_words_from_name(logcategory)) == len(query_words),
         logcategories,
     )

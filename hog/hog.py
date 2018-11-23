@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from sys import stderr
-from typing import List
 
 from hog.utils.args import parse_args
 from hog.utils.get_filenames import get_filenames
@@ -14,14 +13,10 @@ def main() -> None:
         print("---hog logcategory specifier: {}".format(args.logcategory), file=stderr)
         print("---hog interval specifier: {}".format(args.interval), file=stderr)
     logcategories = list_logcategories()
-    logcategory: str = get_logcategory(
-        query=args.logcategory, logcategories=logcategories
-    )
+    logcategory = get_logcategory(query=args.logcategory, logcategories=logcategories)
     if args.is_verbose:
         print("---hog logcategory: {}".format(logcategory), file=stderr)
-    filenames: List[str] = get_filenames(
-        logcategory=logcategory, interval=args.interval
-    )
+    filenames = get_filenames(logcategory=logcategory, interval=args.interval)
     if args.is_verbose:
         print("---hog filenames:", file=stderr)
         for filename in filenames:
