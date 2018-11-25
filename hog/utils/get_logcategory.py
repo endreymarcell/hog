@@ -9,7 +9,10 @@ class NoLogcategoryFoundException(Exception):
 
 
 class MultipleLogcategoriesFoundException(Exception):
-    pass
+    def __init__(self, logcategories: List[str]) -> None:
+        super().__init__()
+        self.logcategories = logcategories
+        self.count = len(logcategories)
 
 
 class WordPrefixNotFoundException(Exception):
@@ -37,7 +40,7 @@ def get_logcategory(query: str, logcategories: List[str]) -> str:
     if len(matching_logcategories) == 0:
         raise NoLogcategoryFoundException
     elif len(matching_logcategories) > 1:
-        raise MultipleLogcategoriesFoundException
+        raise MultipleLogcategoriesFoundException(matching_logcategories)
     else:
         return matching_logcategories[0]
 
