@@ -4,6 +4,7 @@ Hog helps you specify the files you want to open when looking through your Scrib
 
 [![PyPI version](https://badge.fury.io/py/scribehog.svg)](https://badge.fury.io/py/scribehog)
 [![build status](https://api.travis-ci.com/endreymarcell/hog.svg?branch=master)](https://travis-ci.com/endreymarcell/hog)
+[![codecov](https://codecov.io/gh/endreymarcell/hog/branch/master/graph/badge.svg)](https://codecov.io/gh/endreymarcell/hog)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
