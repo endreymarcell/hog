@@ -11,7 +11,9 @@ signal(SIGPIPE, SIG_DFL)
 def print_logs(logcategory: str, filenames: List[str]) -> None:
     for filename in filenames:
         if filename.endswith(".gz"):
-            with gzip.open(join(SCRIBE_ROOT, logcategory, filename), "rt") as file:
+            with gzip.open(
+                join(SCRIBE_ROOT, logcategory, filename), mode="rt", errors="replace"
+            ) as file:
                 for line in filter(
                     lambda current_line: current_line.strip() != "",
                     file.read().split("\n"),
