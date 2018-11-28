@@ -21,5 +21,7 @@ def print_logs(logcategory: str, filenames: List[str]) -> None:
                 ):
                     print(line)
         else:
-            with open(join(SCRIBE_ROOT, logcategory, filename), errors="replace") as file:
+            with open(
+                join(SCRIBE_ROOT, logcategory, filename), errors="replace"
+            ) as file:
                 print(file.read().rstrip("\n"))
