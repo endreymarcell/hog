@@ -9,6 +9,7 @@ signal(SIGPIPE, SIG_DFL)
 
 
 def print_logs(logcategory: str, filenames: List[str]) -> None:
+    # TODO: test the "replace" mechanism for UnicodeDecodeError resilience
     for filename in filenames:
         if filename.endswith(".gz"):
             with gzip.open(
@@ -20,5 +21,5 @@ def print_logs(logcategory: str, filenames: List[str]) -> None:
                 ):
                     print(line)
         else:
-            with open(join(SCRIBE_ROOT, logcategory, filename)) as file:
+            with open(join(SCRIBE_ROOT, logcategory, filename), errors="replace") as file:
                 print(file.read().rstrip("\n"))
