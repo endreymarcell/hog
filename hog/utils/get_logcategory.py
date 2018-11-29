@@ -40,9 +40,16 @@ def get_logcategory(query: str, logcategories: List[str]) -> str:
     if len(matching_logcategories) == 0:
         raise NoLogcategoryFoundException
     elif len(matching_logcategories) > 1:
-        raise MultipleLogcategoriesFoundException(matching_logcategories)
-    else:
-        return matching_logcategories[0]
+        matching_logcategories_with_exact_word_match = list(
+            filter(
+                lambda logcategory: has_exact_word_match(logcategory, query_words),
+                matching_logcategories,
+            )
+        )
+        if len(matching_logcategories_with_exact_word_match) != 1:
+            raise MultipleLogcategoriesFoundException(matching_logcategories)
+
+    return matching_logcategories[0]
 
 
 def does_name_match_pattern(name: str, pattern: List[str]) -> bool:
@@ -69,3 +76,11 @@ def get_word_list_without_matching_word(
 
 def _get_words_from_name(name: str) -> List[str]:
     return name.replace("_", "-").split("-")
+
+
+def has_exact_word_match(logcategory: str, query_words: List[str]) -> bool:
+    words = _get_words_from_name(logcategory)
+    for word in words:
+        if word in query_words:
+            return True
+    return False
