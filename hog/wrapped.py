@@ -62,6 +62,5 @@ def wrapped_get_filenames(
         print("---hog filenames:", file=stderr)
         for filename in filenames:
             print(filename, file=stderr)
-        print("---hog file contents:", file=stderr)
 
     return filenames

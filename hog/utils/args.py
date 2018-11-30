@@ -7,6 +7,8 @@ from hog.const import QUERY_RE_PATTERN, INTERVAL_RE_PATTERN
 def parse_args() -> argparse.Namespace:
     parser = _setup_parser()
     args = _parse_args_intelligently(parser)
+    if args.should_verify:
+        args.is_verbose = True
     if _are_args_valid(args.logcategory, args.interval):
         return args
     else:
@@ -20,6 +22,14 @@ def _setup_parser() -> argparse.ArgumentParser:
         "--verbose",
         help="verbose logging for debug purposes",
         dest="is_verbose",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "-y",
+        "--verify",
+        help="verify logcategory and files before printing them",
+        dest="should_verify",
         action="store_true",
         default=False,
     )
