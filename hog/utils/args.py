@@ -14,7 +14,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def _setup_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="hog", add_help=False)
+    parser = argparse.ArgumentParser(prog="hog")
     parser.add_argument(
         "-v",
         "--verbose",
