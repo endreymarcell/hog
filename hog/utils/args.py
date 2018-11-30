@@ -17,6 +17,7 @@ def _setup_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="hog", add_help=False)
     parser.add_argument(
         "-v",
+        "--verbose",
         help="verbose logging for debug purposes",
         dest="is_verbose",
         action="store_true",
