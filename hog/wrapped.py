@@ -34,11 +34,17 @@ def wrapped_get_logcategory(
     try:
         logcategory = get_logcategory(query=query, logcategories=logcategories)
     except NoLogcategoryFoundException:
-        print("No logcategory found for identifier '{}'".format(query))
+        print("No logcategory found for identifier '{}'".format(query), file=stderr)
         exit(1)
     except MultipleLogcategoriesFoundException as ex:
-        print("Multiple logcategories found for identifier '{}':".format(query))
-        print("\n".join("- " + logcategory for logcategory in ex.logcategories[:10]))
+        print(
+            "Multiple logcategories found for identifier '{}':".format(query),
+            file=stderr,
+        )
+        print(
+            "\n".join("- " + logcategory for logcategory in ex.logcategories[:10]),
+            file=stderr,
+        )
         if ex.count > 10:
             print("...and {} more".format(ex.count - 10))
         exit(1)
@@ -55,7 +61,9 @@ def wrapped_get_filenames(
     try:
         filenames = get_filenames(logcategory, interval)
     except NoFileMatchesAbsoluteSpecifierException:
-        print("No file mathces the absolute specifier '{}'".format(interval))
+        print(
+            "No file mathces the absolute specifier '{}'".format(interval), file=stderr
+        )
         exit(1)
 
     if is_verbose:
