@@ -12,6 +12,7 @@ from hog.utils.get_logcategory import (
     NoLogcategoryFoundException,
     MultipleLogcategoriesFoundException,
 )
+from utils.print_logs import print_logs
 
 
 def wrapped_parse_args() -> argparse.Namespace:
@@ -72,3 +73,11 @@ def wrapped_get_filenames(
             print(filename, file=stderr)
 
     return filenames
+
+
+def wrapped_print_logs(
+    logcategory: str, filenames: List[str], is_verbose: bool
+) -> None:
+    if is_verbose:
+        print("---hog file contents:", file=stderr)
+    print_logs(logcategory, filenames)

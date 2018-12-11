@@ -1,5 +1,4 @@
 import gzip
-from sys import stderr
 from typing import List
 from os.path import join
 from signal import signal, SIGPIPE, SIG_DFL
@@ -11,7 +10,6 @@ signal(SIGPIPE, SIG_DFL)
 
 def print_logs(logcategory: str, filenames: List[str]) -> None:
     # TODO: test the "replace" mechanism for UnicodeDecodeError resilience
-    print("---hog file contents:", file=stderr)
     for filename in filenames:
         if filename.endswith(".gz"):
             with gzip.open(
