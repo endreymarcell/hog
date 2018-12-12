@@ -12,7 +12,7 @@ from hog.utils.get_logcategory import (
     NoLogcategoryFoundException,
     MultipleLogcategoriesFoundException,
 )
-from utils.print_logs import print_logs
+from hog.utils.print_logs import print_logs
 
 
 def wrapped_parse_args() -> argparse.Namespace:
