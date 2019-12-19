@@ -37,7 +37,7 @@ class GetLogcategoryTestCase(unittest.TestCase):
 
     def test_multiple_matches_exact_word_match_wins(self) -> None:
         result = get_logcategory(
-            "cheese-b-c", ["cheese_bravo_charlie", "cheeseshop_bravo_charlie"]
+            "cheese-b-c", ["cheeseshop_bravo_charlie", "cheese_bravo_charlie"]
         )
         self.assertEqual(result, "cheese_bravo_charlie")
 

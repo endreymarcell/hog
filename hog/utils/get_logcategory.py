@@ -46,7 +46,9 @@ def get_logcategory(query: str, logcategories: List[str]) -> str:
                 matching_logcategories,
             )
         )
-        if len(matching_logcategories_with_exact_word_match) != 1:
+        if len(matching_logcategories_with_exact_word_match) == 1:
+            return matching_logcategories_with_exact_word_match[0]
+        else:
             raise MultipleLogcategoriesFoundException(matching_logcategories)
 
     return matching_logcategories[0]
